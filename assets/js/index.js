@@ -146,9 +146,25 @@ var settingsBtn = document.getElementById("settings-toggle");
 var settingsSidebar = document.getElementById("settings-sidebar");
 var closeSettings = document.getElementById("close-settings");
 
-settingsBtn.onclick = function () {
+settingsBtn.onclick = function (event) {
+  event.stopPropagation();
   settingsSidebar.classList.remove("translate-x-full");
   settingsBtn.setAttribute("aria-expanded", "true");
+};
+window.onclick = function (event) {
+  var isClosed = settingsSidebar.classList.contains("translate-x-full");
+
+  if (isClosed == false) {
+    var clickedInsideSidebar = settingsSidebar.contains(event.target);
+
+    var clickedOnSettingsBtn = event.target == settingsBtn;
+    if (clickedInsideSidebar == false) {
+      if (clickedOnSettingsBtn == false) {
+        settingsSidebar.classList.add("translate-x-full");
+        settingsBtn.setAttribute("aria-expanded", "false");
+      }
+    }
+  }
 };
 
 closeSettings.onclick = function () {
