@@ -1,3 +1,5 @@
+// test
+
 // 1 Navbar Scroll
 window.addEventListener("scroll", function () {
   var sections = document.querySelectorAll("section[id]");
@@ -141,7 +143,7 @@ window.addEventListener("resize", function () {
   slideCarousel();
 });
 
-// 5  gear icon
+// 5  gear icon Sidebar
 var settingsBtn = document.getElementById("settings-toggle");
 var settingsSidebar = document.getElementById("settings-sidebar");
 var closeSettings = document.getElementById("close-settings");
@@ -181,7 +183,7 @@ for (var i = 0; i < fontOptions.length; i++) {
     document.body.classList.remove(
       "font-alexandria",
       "font-tajawal",
-      "font-cairo"
+      "font-cairo",
     );
 
     document.body.classList.add("font-" + selectedFont);
